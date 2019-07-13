@@ -2,10 +2,11 @@
 // Use as a container
 
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Row } from 'reactstrap';
 import Menu from './MenuComponent'
 import { DISHES } from '../shared/dishes'
 import DiscDetial from './DiscDetail';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 
 class Main extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class Main extends Component {
         };
     }
     onDishSelect(dishId) {
-        const dish=this.state.dishes.filter((dish)=>dish.id==dishId)[0]
+        const dish=this.state.dishes.filter((dish)=>dish.id === dishId)[0]
         this.setState({ selectdish: dish });
         document.getElementById('target').scrollIntoView();
     }
@@ -35,19 +36,14 @@ class Main extends Component {
     render() {
         return (
             <div  >
-                <Navbar color="primary">
-                    <div className="container">
-                        <Navbar href="#">NTC</Navbar>
-                    </div>
-                </Navbar>
-            
-                <Row className="m-5">
+                <Header />
+                <div className="m-5">
                     <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)}></Menu>
-                </Row>
+                </div>
                 <div  id="target" >
                     {this.renderDish(this.state.selectdish)}
                 </div>
-            
+                <Footer />
             </div>
         );
     }

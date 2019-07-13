@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Card, CardBody, CardImg, CardText, CardTitle, ListGroup, ListGroupItem, Row, Col, ListGroupItemText, ListGroupItemHeading} from 'reactstrap';
+import React from 'react';
+import { Card, CardBody, CardImg, CardText, CardTitle, ListGroup, ListGroupItem, Row, ListGroupItemText, ListGroupItemHeading} from 'reactstrap';
 
 
 const DiscDetail = (props) => {
