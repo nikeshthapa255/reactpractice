@@ -1,10 +1,26 @@
 import React from 'react';
-import { Card, CardBody, CardImg, CardText, CardTitle, ListGroup, ListGroupItem, Row, ListGroupItemText, ListGroupItemHeading} from 'reactstrap';
+import {
+    Card, CardBody, CardImg, CardText, CardTitle,
+    ListGroup, ListGroupItem, Row, ListGroupItemText, ListGroupItemHeading,
+    Breadcrumb, BreadcrumbItem
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 const DiscDetail = (props) => {
     return (
         <div className="container">
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                    <BreadcrumbItem ><Link to="/menu">Menu</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>{props.dish.name}</h3>
+                    <hr />
+                </div>
+            </div>
             <Row>
                 <div className="col-md-5 m-1">
                     <Card>
@@ -18,20 +34,20 @@ const DiscDetail = (props) => {
                 <div className="col-md-5 m-1">
                     <ListGroup>
                         <ListGroupItemHeading>Comments</ListGroupItemHeading>
-                        {props.dish.comments.map((comment)=>{
-                            return(
+                        {props.comments.map((comment) => {
+                            return (
                                 <ListGroupItem key={comment.id}>
                                     <ListGroupItemText>{comment.comment}</ListGroupItemText>
-                                    <ListGroupItemText>{comment.author}, {new Intl.DateTimeFormat('en-US',{year:"numeric",month: "short", day:"2-digit"}).format(new Date(Date.parse(comment.date)))}</ListGroupItemText>
+                                    <ListGroupItemText>{comment.author}, {new Intl.DateTimeFormat('en-US', { year: "numeric", month: "short", day: "2-digit" }).format(new Date(Date.parse(comment.date)))}</ListGroupItemText>
                                 </ListGroupItem>
                             );
-                        }) }
+                        })}
                     </ListGroup>
                 </div>
             </Row>
-            
+
         </div>
-     );
+    );
 }
- 
+
 export default DiscDetail;
