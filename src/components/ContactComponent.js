@@ -63,10 +63,9 @@ class Contact extends Component {
         if (this.state.touched.telnum && !reg.test(telnum))
             error.telnum="Tel. Number sould contain only numbers";
         
-        if (this.state.touched.email && email.split('').filter((x)=> x==='@').length != 1)
-            error.email="Email should conatain a @ sign. ";
-        if (this.state.touched.email && email.split('').filter((x)=> x==='.').length < 1)
-            error.email+="Email should conatain a . sign. ";
+        const regemail=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+        if (this.state.touched.email && !regemail.test(email))
+            error.email="Email invalid.";
         
         return error
     }

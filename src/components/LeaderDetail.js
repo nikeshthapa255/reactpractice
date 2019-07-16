@@ -11,7 +11,7 @@ function Leader({leader}){
             
             <Media body>
                 <Media heading>{leader.name}</Media>
-                <Media children className="pb-2">{leader.designation}</Media>
+                <div  width="100" className="my-1"><span>{leader.designation}</span></div>
                 {leader.description}
             </Media>
         </Media>
