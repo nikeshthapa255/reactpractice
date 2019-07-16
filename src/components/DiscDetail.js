@@ -1,4 +1,5 @@
 import React from 'react';
+import SubmitComment from './SubmitCommentComponent';
 import {
     Card, CardBody, CardImg, CardText, CardTitle,
     ListGroup, ListGroupItem, Row, ListGroupItemText, ListGroupItemHeading,
@@ -43,6 +44,7 @@ const DiscDetail = (props) => {
                             );
                         })}
                     </ListGroup>
+                    <SubmitComment/>
                 </div>
             </Row>
 
