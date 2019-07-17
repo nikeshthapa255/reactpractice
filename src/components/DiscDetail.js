@@ -44,7 +44,7 @@ const DiscDetail = (props) => {
                             );
                         })}
                     </ListGroup>
-                    <SubmitComment/>
+                    <SubmitComment addComment={props.addComment} dishId={props.dish.id}/>
                 </div>
             </Row>
 
