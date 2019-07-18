@@ -1,3 +1,6 @@
+// It's a reducer
+
+
 import { LEADERS } from '../shared/leaders';
 
 

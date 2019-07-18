@@ -1,3 +1,5 @@
+// It's a reducer
+
 import { COMMENTS } from '../shared/comments';
 import * as ActionType from './ActionType';
 

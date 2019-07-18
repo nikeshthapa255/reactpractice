@@ -19,7 +19,7 @@ class SubmitComment extends Component {
     handleSubmit(value){
         this.props.addComment(this.props.dishId, value.rating, value.name, value.comment);
         console.log("Form data"+JSON.stringify(value))
-        alert("Form data"+JSON.stringify(value))
+        
     }
 
     toggleModal(){
