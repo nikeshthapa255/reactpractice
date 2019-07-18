@@ -20,7 +20,7 @@ export const LEADERS = [
     {
       id: 2,
       name: 'Nikesh Thapa',
-      image: '/assets/images/ntc1.jpg',
+      image: '/images/ntc1.jpg',
       designation: 'Chief Taste Officer',
       abbr: 'CTO',
         featured: true,

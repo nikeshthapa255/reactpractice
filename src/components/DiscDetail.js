@@ -7,10 +7,11 @@ import {
     Breadcrumb, BreadcrumbItem
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseURL';
 
 
 const DiscDetail = (props) => {
-    if (props.isLoading){
+    if (props.isLoading) {
         return (
             <div className="conatiner">
                 <div class="row">
@@ -19,7 +20,7 @@ const DiscDetail = (props) => {
             </div>
         );
     }
-    else if (props.errMess){
+    else if (props.errMess) {
         return (
             <div className="conatiner">
                 <div class="row">
@@ -45,7 +46,7 @@ const DiscDetail = (props) => {
                 <Row>
                     <div className="col-md-5 m-1">
                         <Card>
-                            <CardImg width="100%" src={props.dish.image} alt={props.dish.name}></CardImg>
+                            <CardImg width="100%" src={baseUrl + props.dish.image} alt={props.dish.name}></CardImg>
                             <CardBody>
                                 <CardTitle>{props.dish.name}</CardTitle>
                                 <CardText>{props.dish.description}</CardText>
@@ -64,14 +65,14 @@ const DiscDetail = (props) => {
                                 );
                             })}
                         </ListGroup>
-                        <SubmitComment addComment={props.addComment} dishId={props.dish.id}/>
+                        <SubmitComment addComment={props.addComment} dishId={props.dish.id} />
                     </div>
                 </Row>
 
             </div>
         );
     else
-        return(<Loading></Loading>)
+        return (<Loading></Loading>)
 }
 
 export default DiscDetail;

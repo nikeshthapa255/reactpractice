@@ -1,5 +1,5 @@
 import * as ActionType from './ActionType';
-import { DISHES } from '../shared/dishes';
+import { baseUrl } from '../shared/baseURL';
 
 export const addComment = (dishId, rating, author, comment) => ({
     type: ActionType.ADD_COMMENT,
@@ -13,9 +13,9 @@ export const addComment = (dishId, rating, author, comment) => ({
 
 export const fetchDishes = () => (dispatch) => {
     dispatch(dishesLoading(true));
-    setTimeout(() => {
-        dispatch(addDishes(DISHES))
-    }, 2000);
+    return fetch(baseUrl + "dishes")
+        .then(response => response.json())
+        .then(dishes => dispatch(addDishes(dishes)));
 }
 
 export const dishesLoading = () => ({
@@ -30,4 +30,42 @@ export const dishesFailed = (errMess) => ({
 export const addDishes = (dishes) => ({
     type: ActionType.ADD_DISHES,
     payload: dishes
+})
+
+export const fetchComments = () => (dispatch) => {
+    return fetch(baseUrl + "comments")
+        .then(response => response.json())
+        .then(comments => dispatch(addComments(comments)));
+}
+
+export const commentsFailed = (errMess) => ({
+    type: ActionType.COMMENTS_FAILED,
+    payload: errMess
+})
+
+export const addComments = (comments) => ({
+    type: ActionType.ADD_COMMENTS,
+    payload: comments
+})
+
+
+export const fetchPromos = () => (dispatch) => {
+    dispatch(promosLoading(true));
+    return fetch(baseUrl + "promotions")
+        .then(response => response.json())
+        .then(promos => dispatch(addPromos(promos)));
+}
+
+export const promosLoading = () => ({
+    type: ActionType.PROMOS_LOADING
+})
+
+export const promosFailed = (errMess) => ({
+    type: ActionType.PROMOS_FAILED,
+    payload: errMess
+})
+
+export const addPromos = (promos) => ({
+    type: ActionType.ADD_PROMOS,
+    payload: promos
 })
