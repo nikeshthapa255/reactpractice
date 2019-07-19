@@ -1,11 +1,44 @@
 import * as ActionType from './ActionType';
 import { baseUrl } from '../shared/baseURL';
 
+
+export const postFeedback = (values) => {
+    const newFeedback = JSON.parse(JSON.stringify(values));
+    newFeedback.date = new Date().toISOString();
+    return fetch(baseUrl + "feedback", {
+        method: "POST",
+        body: JSON.stringify(newFeedback),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+        .then(response => {
+            if (response.ok) {
+                return response
+            }
+            else {
+                var error = new Error('Error ' + response.status + ':' + response.statusText)
+                error.response = response;
+                throw error;
+            }
+        },
+            error => {
+                var errMess = new Error(error.message);
+                throw errMess;
+            }
+        )
+        .then(response => response.json())
+        .then(response => alert("Thankyou for your Feedback\n" + JSON.stringify(response)))
+        .catch(error => alert("Your Feedback Form could not be posted.\nError-" + error.message))
+
+}
+
+
 export const addComment = (comment) => ({
     type: ActionType.ADD_COMMENT,
     payload: comment
 })
-
 export const postComment = (dishId, rating, author, comment) => (dispatch) => {
     const newComment = {
         dishId: dishId,
@@ -28,7 +61,9 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
                 return response
             }
             else {
-                var error = new Error('Error ' + response.status + ':' + response.statusText)
+                var error = new Error('Error ' + response.status + ':' + response.statusText);
+                error.response = response;
+                throw error;
             }
         },
             error => {
@@ -49,7 +84,9 @@ export const fetchDishes = () => (dispatch) => {
                 return response
             }
             else {
-                var error = new Error('Error ' + response.status + ':' + response.statusText)
+                var error = new Error('Error ' + response.status + ':' + response.statusText);
+                error.response = response;
+                throw error;
             }
         },
             error => {
@@ -83,7 +120,9 @@ export const fetchComments = () => (dispatch) => {
                 return response
             }
             else {
-                var error = new Error('Error ' + response.status + ':' + response.statusText)
+                var error = new Error('Error ' + response.status + ':' + response.statusText);
+                error.response = response;
+                throw error;
             }
         },
             error => {
@@ -114,7 +153,9 @@ export const fetchPromos = () => (dispatch) => {
                 return response
             }
             else {
-                var error = new Error('Error ' + response.status + ':' + response.statusText)
+                var error = new Error('Error ' + response.status + ':' + response.statusText);
+                error.response = response;
+                throw error;
             }
         },
             error => {
@@ -148,7 +189,9 @@ export const fetchLeaders = () => (dispatch) => {
                 return response
             }
             else {
-                var error = new Error('Error ' + response.status + ':' + response.statusText)
+                var error = new Error('Error ' + response.status + ':' + response.statusText);
+                error.response = response;
+                throw error;
             }
         },
             error => {
