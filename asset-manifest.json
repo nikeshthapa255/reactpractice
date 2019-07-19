@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/reactpractice/static/css/main.528f7ac2.chunk.css",
+    "main.js": "/reactpractice/static/js/main.d9452fd2.chunk.js",
+    "main.js.map": "/reactpractice/static/js/main.d9452fd2.chunk.js.map",
+    "runtime~main.js": "/reactpractice/static/js/runtime~main.94f820ca.js",
+    "runtime~main.js.map": "/reactpractice/static/js/runtime~main.94f820ca.js.map",
+    "static/css/2.5ba5ddee.chunk.css": "/reactpractice/static/css/2.5ba5ddee.chunk.css",
+    "static/js/2.b22b24da.chunk.js": "/reactpractice/static/js/2.b22b24da.chunk.js",
+    "static/js/2.b22b24da.chunk.js.map": "/reactpractice/static/js/2.b22b24da.chunk.js.map",
+    "index.html": "/reactpractice/index.html",
+    "precache-manifest.d459a70c5bf284efed9d3f99ed1521b9.js": "/reactpractice/precache-manifest.d459a70c5bf284efed9d3f99ed1521b9.js",
+    "service-worker.js": "/reactpractice/service-worker.js",
+    "static/css/2.5ba5ddee.chunk.css.map": "/reactpractice/static/css/2.5ba5ddee.chunk.css.map",
+    "static/css/main.528f7ac2.chunk.css.map": "/reactpractice/static/css/main.528f7ac2.chunk.css.map",
+    "static/media/font-awesome.min.css": "/reactpractice/static/media/fontawesome-webfont.fee66e71.woff"
+  }
+}
