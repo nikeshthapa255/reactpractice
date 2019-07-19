@@ -1,17 +1,18 @@
 import React from 'react';
-import {Media } from 'reactstrap';
+import { Media } from 'reactstrap';
+import { baseUrl } from '../shared/baseURL';
 
 
-function Leader({leader}){
-    return(
+function Leader({ leader }) {
+    return (
         <Media className="m-3">
             <Media left href="#" className="mr-5 pt-1">
-                <Media object src={leader.image} className="rounde-circle" width="100" height="100" alt={leader.name} />
+                <Media object src={baseUrl + leader.image} className="rounde-circle" width="100" height="100" alt={leader.name} />
             </Media>
-            
+
             <Media body>
                 <Media heading>{leader.name}</Media>
-                <div  width="100" className="my-1"><span>{leader.designation}</span></div>
+                <div width="100" className="my-1"><span>{leader.designation}</span></div>
                 {leader.description}
             </Media>
         </Media>

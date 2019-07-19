@@ -14,7 +14,7 @@ function RenderCard({ item, isLoading, errMess }) {
             <h4>errMess</h4>
         )
     }
-    else if (item)
+    else 
         return (
             <Card>
                 <CardImg src={baseUrl + item.image} alt={item.name} />
@@ -25,10 +25,7 @@ function RenderCard({ item, isLoading, errMess }) {
                 </CardBody>
             </Card>
         );
-    else
-        return (
-            <Loading />
-        )
+    
 
 }
 const Home = (props) => {
@@ -46,7 +43,9 @@ const Home = (props) => {
                         errMess={props.promosErrMess} />
                 </div>
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.leader} />
+                    <RenderCard item={props.leader}
+                        isLoading={props.leadersLoading}
+                        errMess={props.leadersErrMess} />
                 </div>
 
             </div>

@@ -19,7 +19,7 @@ class Header extends Component {
     }
     handelLogin(event) {
         this.toggleModal();
-        alert(" username: "+this.username.value+" , password: "+this.password.value+" , remember: "+this.remember.checked)
+        alert(" username: " + this.username.value + " , password: " + this.password.value + " , remember: " + this.remember.checked)
         event.preventDefault();
     }
 
@@ -41,7 +41,7 @@ class Header extends Component {
                 <Navbar dark expand="md">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto" href="/">
+                        <NavbarBrand className="mr-auto" href="#">
                             <img src="assets/images/logo.png" alt="Ristorante con Fusion" height="30" width="41" />
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -97,17 +97,17 @@ class Header extends Component {
                             <FormGroup>
                                 <Label htmlFor="username">Username</Label>
                                 <Input type="text" id="username" password="username"
-                                    innerRef={(input)=> this.username=input}></Input>
+                                    innerRef={(input) => this.username = input}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="password">Password</Label>
                                 <Input type="password" id="password" password="password"
-                                    innerRef={(input)=> this.password=input}></Input>
+                                    innerRef={(input) => this.password = input}></Input>
                             </FormGroup>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="checkbox" name="remember" 
-                                        innerRef={(input)=> this.remember=input}></Input>
+                                    <Input type="checkbox" name="remember"
+                                        innerRef={(input) => this.remember = input}></Input>
                                     Remember me
                                 </Label>
                             </FormGroup>
