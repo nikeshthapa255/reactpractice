@@ -8,7 +8,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseURL';
-
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 const DiscDetail = (props) => {
     if (props.isLoading) {
@@ -45,25 +45,34 @@ const DiscDetail = (props) => {
                 </div>
                 <Row>
                     <div className="col-md-5 m-1">
-                        <Card>
-                            <CardImg width="100%" src={baseUrl + props.dish.image} alt={props.dish.name}></CardImg>
-                            <CardBody>
-                                <CardTitle>{props.dish.name}</CardTitle>
-                                <CardText>{props.dish.description}</CardText>
-                            </CardBody>
-                        </Card>
+                        <FadeTransform in
+                            transformProps={{
+                                exitTransform: 'scale(0.5) translateY(-50%)'
+                            }}>
+                            <Card>
+                                <CardImg width="100%" src={baseUrl + props.dish.image} alt={props.dish.name}></CardImg>
+                                <CardBody>
+                                    <CardTitle>{props.dish.name}</CardTitle>
+                                    <CardText>{props.dish.description}</CardText>
+                                </CardBody>
+                            </Card>
+                        </FadeTransform>
                     </div>
                     <div className="col-md-5 m-1">
                         <ListGroup>
                             <ListGroupItemHeading>Comments</ListGroupItemHeading>
-                            {props.comments.map((comment) => {
-                                return (
-                                    <ListGroupItem key={comment.id}>
-                                        <ListGroupItemText>{comment.comment}</ListGroupItemText>
-                                        <ListGroupItemText>{comment.author}, {new Intl.DateTimeFormat('en-US', { year: "numeric", month: "short", day: "2-digit" }).format(new Date(Date.parse(comment.date)))}</ListGroupItemText>
-                                    </ListGroupItem>
-                                );
-                            })}
+                            <Stagger in>
+                                {props.comments.map((comment) => {
+                                    return (
+                                        <Fade in>
+                                            <ListGroupItem key={comment.id}>
+                                                <ListGroupItemText>{comment.comment}</ListGroupItemText>
+                                                <ListGroupItemText>{comment.author}, {new Intl.DateTimeFormat('en-US', { year: "numeric", month: "short", day: "2-digit" }).format(new Date(Date.parse(comment.date)))}</ListGroupItemText>
+                                            </ListGroupItem>
+                                        </Fade>
+                                    );
+                                })}
+                            </Stagger>
                         </ListGroup>
                         <SubmitComment postComment={props.postComment} dishId={props.dish.id} />
                     </div>
